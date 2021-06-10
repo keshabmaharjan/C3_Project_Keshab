@@ -5,11 +5,16 @@ import java.util.List;
 public class RestaurantService {
     private static List<Restaurant> restaurants = new ArrayList<>();
 
+    //findRestaurantByName() is implemented for
+    //Searching the restaurant by the name.
     public Restaurant findRestaurantByName(String restaurantName){
+        for (Restaurant rest : restaurants) {
+            if (rest.getName().equals(restaurantName)) {
+                return rest;
+            }
+        }
         return null;
-        //DELETE ABOVE STATEMENT AND WRITE CODE HERE
     }
-
 
     public Restaurant addRestaurant(String name, String location, LocalTime openingTime, LocalTime closingTime) {
         Restaurant newRestaurant = new Restaurant(name, location, openingTime, closingTime);
